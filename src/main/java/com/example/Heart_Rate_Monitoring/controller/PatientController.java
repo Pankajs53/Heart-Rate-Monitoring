@@ -32,7 +32,7 @@ public class PatientController {
 
     }
 
-    // Retrieve all patients for a specific user
+    
     @GetMapping("/{patientId}")
     public ResponseEntity<Patient> getPatientById(@PathVariable Long patientId) {
         System.out.println("Patient id is " + patientId);
@@ -41,7 +41,7 @@ public class PatientController {
             return ResponseEntity.notFound().build();
         }
 
-        // Set the password to null before returning the response
+        // Set the password to null before returning the response to hide the password
         if (patient.getUser() != null) {
             patient.getUser().setPassword(null);
         }
