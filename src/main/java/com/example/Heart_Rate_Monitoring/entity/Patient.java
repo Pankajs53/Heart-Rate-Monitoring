@@ -24,5 +24,5 @@ public class Patient {
     private String gender;
 
     @Column(unique = true, nullable = true)
-    private String phoneNo; // Nullable for children or elderly patients
+    private String phoneNo; 
 }
