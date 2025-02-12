@@ -30,12 +30,12 @@ public class HeartRateService {
         List<HeartRate> heartRateList = heartRateRepository.findByPatientId(patientId);
         List<HeartRateResponse> responseList = new ArrayList<>();
 
-        // Convert to DTO
+        // Change to DTO
         for (HeartRate hr : heartRateList) {
             responseList.add(new HeartRateResponse(hr.getBpm(), hr.getTimeStamp()));
         }
 
-        // Sort by timeStamp in descending order
+        // Sort the data before sending back response
         Collections.sort(responseList, new Comparator<HeartRateResponse>() {
             @Override
             public int compare(HeartRateResponse a, HeartRateResponse b) {
